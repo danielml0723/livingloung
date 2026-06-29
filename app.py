@@ -1,24 +1,29 @@
 import streamlit as st
 
-from pages import dashboard, rrhh, payroll
-
 st.set_page_config(
     page_title="Living Lounge ERP",
     layout="wide"
 )
 
-st.sidebar.title("🏢 Living Lounge ERP")
+st.sidebar.title("🏢 ERP Living Lounge")
 
 page = st.sidebar.selectbox(
     "Menú",
     ["Dashboard", "RRHH", "Planillas"]
 )
 
+# DASHBOARD
 if page == "Dashboard":
-    dashboard.render()
+    st.title("📊 Dashboard")
+    st.metric("Empleados", 12)
+    st.metric("Planillas", 2)
 
+# RRHH
 elif page == "RRHH":
-    rrhh.render()
+    st.title("👥 RRHH")
+    st.write("Lista de empleados")
 
+# PLANILLAS
 elif page == "Planillas":
-    payroll.render()
+    st.title("💰 Planillas")
+    st.write("Cálculo de nómina")
